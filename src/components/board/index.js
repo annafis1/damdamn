@@ -22,8 +22,7 @@ const boardRule = [
 const boxes = new Array(45).fill(
     <Box contain="white"/>);
 
-boxes[1] = boxes[3] = <Box contain="white" />
-boxes[2] = <FireBox/>
+// boxes[2] = <FireBox/>
 
 
 class Board extends React.Component {
@@ -36,6 +35,10 @@ class Board extends React.Component {
             pondPickCoordinate: [0,0],
             pondDropCoordinate: [0,0]
         }
+    }
+
+    renderTest() {
+        this.state.gameBoard[2] = <FireBox/>
     }
 
     setGameState(state) {
@@ -61,9 +64,7 @@ class Board extends React.Component {
         this.setState ({
             isOver:state
         })
-    }
-
-    
+    }    
 
     render() {
         let board = [];
@@ -79,6 +80,7 @@ class Board extends React.Component {
 
         return(
             <div>
+                
                 <div className="board-div">
                     {board[0]}
                     {board[1]}
@@ -90,7 +92,7 @@ class Board extends React.Component {
                     {board[8]}
                 </div>
                 <div className="test-gameover">
-                    <button> Press Me</button>
+                    <button onClick={this.addPion}> Move </button>
                     <p>{this.state.isOver}</p>
                 </div>
             </div>
