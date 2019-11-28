@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 
+<<<<<<< HEAD
 import FireBox from "./fire";
 // import TreeBox from "./tree";
 import Box from "./boardBox";
@@ -95,10 +96,41 @@ class Board extends React.Component {
                     <button onClick={this.addPion}> Move </button>
                     <p>{this.state.isOver}</p>
                 </div>
+=======
+import '../index.css';
+import Square from './boardBox';
+
+export default class Board extends React.Component {
+
+    renderSquare(i, j, squareShade) {
+        return <Square
+            piece = {this.props.squares[i][j]}
+            style = {this.props.squares[i][j]? this.props.squares[i][j].style : null}
+            shade = {squareShade}
+            onClick={() => this.props.onClick([i,j])}
+        />
+    }
+
+    render() {
+        const board = [];
+        for(let i = 0; i < 11; i++){
+            const squareRows = [];
+            for(let j = 0; j < 5; j++){
+                squareRows.push(this.renderSquare(i, j, "square"));
+            }
+            board.push(<div className="board-row">{squareRows}</div>)
+        }
+
+        return (
+            <div>
+                {board}
+>>>>>>> f3a584e072656e8c49db89ea009300593ac5f9c1
             </div>
             
         );
     }
 }
 
-export default Board;
+function isEven(num){
+    return num % 2 === 0;
+}

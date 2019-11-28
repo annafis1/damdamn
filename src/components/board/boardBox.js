@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
+import '../index.css';
 
-import "./boardBox.css"
-
-class BoardBox extends React.Component {
-    render() {
-        return(
-            <div className={`box ${this.props.contain}`} />
-        );
-    }
+export default function Square(props) {
+    return (
+        <button className={"square " + props.shade}
+                onClick={props.onClick}
+                style={props.style}>
+        </button>
+    );
 }
-
-export default BoardBox;
